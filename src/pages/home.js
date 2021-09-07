@@ -1,5 +1,9 @@
+import Jumbotron from "../components/jumbotron"
+
 export default function Home() {
     return (
-        <p>I am Home</p>
+        <Jumbotron.Container>
+            <p>Hello</p>
+        </Jumbotron.Container>
     )
 }

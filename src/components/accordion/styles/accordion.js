@@ -7,6 +7,7 @@ export const Container = styled.div`
 
 export const Frame = styled.div`
     margin-bottom: 40px;
+    max-width: 1200px;
 `
 
 export const Inner = styled.div`
@@ -50,6 +51,7 @@ export const Header = styled.div`
     padding: .8em 1.2em;
     user-select: none;
     align-items: center;
+    width: 100%;
 
     @media (max-width: 600px) {
         font-size: 16px;

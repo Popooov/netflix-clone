@@ -6,7 +6,7 @@ export const Container = styled.section`
 `
 
 export const Frame = styled.div`
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     max-width: 1200px;
 `
 
@@ -44,6 +44,7 @@ export const Header = styled.div`
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+    box-sizing: border-box;
     margin-bottom: 1px;
     font-size: 26px;
     font-weight: normal;
@@ -77,7 +78,7 @@ export const Body = styled.div`
     padding: .8em 1.2em;
     user-select: none;
     align-items: center;
-    width: 100%auto;
+    width: 100%;
 
     @media (max-width: 600px) {
         font-size: 16px;

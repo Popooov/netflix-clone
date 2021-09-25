@@ -47,6 +47,27 @@ export const Button = styled.button`
     &:hover {
         background: #f40612;
     }
+
+    @media (max-width: 1000px) {
+        height: 50px;
+        font-size: 16px;
+        margin-top: 20px;
+        font-weight: bold;
+    }
 `
 
-export const Text = styled.p``
+export const Break = styled.div`
+    flex-basis: 100%;
+    height: 0;
+`
+
+export const Text = styled.p`
+    font-size: 19px;
+    color: white;
+    text-align: center;
+
+    @media (max-width: 600px) {
+        font-size: 16px;
+        line-height: 22px;
+    }
+`

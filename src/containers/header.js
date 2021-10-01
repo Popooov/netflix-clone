@@ -11,7 +11,8 @@ export function HeaderContainer({ children }) {
                     alt='Netflix'
                 />
                 <Header.ButtonLink>
-                    
+                    to={ROUTES.SIGN_IN}
+                    Sign In
                 </Header.ButtonLink>
             </Header.Frame>
         </Header>

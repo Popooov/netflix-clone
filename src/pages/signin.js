@@ -10,9 +10,7 @@ export default function SignIn() {
 
     const isInvalid = password === '' | emailAddress === ''
 
-    const handleSignIn = (e) => {
-        e.preventDefault()
-    }
+    const handleSignIn = e => e.preventDefault()
 
     return (
         <>

@@ -17,6 +17,6 @@ export function BrowseContainer() {
             <FooterContainer></FooterContainer>
         </>
     ) : (
-        <SelectProfileContainer />
+        <SelectProfileContainer user={user} serProfile={setProfile} />
     )
 }

@@ -1,17 +1,39 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { FirebaseContext } from "../context/firebase"
+import { useHistory } from "react-router-dom"
 import { HeaderContainer } from "../containers/header"
 import { FooterContainer } from "../containers/footer"
 import { Form } from "../components"
+import * as ROUTES from '../constants/routes'
 
 export default function SignUp() {
+    const history = useHistory()
+    const { firebase } = useContext(FirebaseContext)
     const [ firstName, setFirstName ] = useState('')
     const [ emailAddress, setEmailAddress ] = useState('')
     const [ password, setPassword ] = useState('')
-    const [ error ] = useState('')
+    const [ error, setError ] = useState('')
 
     const isInvalid = firstName === '' | password === '' | emailAddress === ''
 
-    const handleSignUp = e => e.preventDefault()
+    const handleSignUp = e => {
+        e.preventDefault()
+
+        firebase.auth()
+            .createUserWithEmailAndPassword(emailAddress, password)
+            .then((res) => {
+                res.user.updateProfile({
+                    displayName: firstName,
+                    photoURL: Math.floor(Math.random() * 5) + 1,
+                })
+                .then(() => {
+                    setEmailAddress('')
+                    setPassword('')
+                    setError('')
+                    history.push(ROUTES.BROWSE)
+                })
+            }).catch(error => setError(error.message))
+    }
 
     return (
         <>
@@ -27,11 +49,13 @@ export default function SignUp() {
                             onChange={({ target }) => setFirstName(target.value)}
                         />
                         <Form.Input 
-                            placeholder='Email Address' 
+                            placeholder='Email Address'
+                            autocomplete='off'
                             value={emailAddress}
                             onChange={({ target }) => setEmailAddress(target.value)}
                         />
                         <Form.Input
+                            type='password'
                             autocomplete='off'
                             placeholder='Password' 
                             value={password}

@@ -1,25 +1,25 @@
-import styled from "styled-components"
+import { Container, Title, List, Item, Picture, Name } from './styles/profiles'
 
-export const Container = styled.div`
+export default function Profiles({ children, ...restProps }) {
+    return <Container {...restProps}>{children}</Container>
+}
 
-`
+Profiles.Title = function ProfilesTitle({ children, ...restProps }) {
+    return <Title {...restProps}>{children}</Title>
+}
 
-export const Title = styled.h1`
+Profiles.List = function ProfilesList({ children, ...restProps }) {
+    return <List {...restProps}>{children}</List>
+}
 
-`
+Profiles.User= function ProfilesUser({ children, ...restProps }) {
+    return <Item {...restProps}>{children}</Item>
+}
 
-export const List = styled.ul`
+Profiles.Picture = function ProfilesPicture({ src, ...restProps }) {
+    return <Picture {...restProps} src={src ? `/images/users/${src}.png` : '/images/misc/loading.gif'} />
+}
 
-`
-
-export const Item = styled.div`
-
-`
-
-export const Name = styled.p`
-
-`
-
-export const Picture = styled.img`
-
-`
+Profiles.Name = function ProfilesName({ children, ...restProps }) {
+    return <Name {...restProps}>{children}</Name>
+}

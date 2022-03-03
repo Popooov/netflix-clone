@@ -1,25 +1,65 @@
-import { Container, Title, List, Item, Picture, Name } from '../index'
+import styled from "styled-components"
 
-export default function Profiles({ children, ...restProps }) {
-    return <Container {...restProps}>{children}</Container>
-}
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 80%;
+`
 
-Profiles.Title = function ProfilesTitle({ children, ...restProps }) {
-    return <Title {...restProps}>{children}</Title>
-}
+export const Title = styled.h1`
+    width: 100%;
+    color: #fff;
+    font-size: 48px;
+    text-align: center;
+    font-weight: 500;
+`
 
-Profiles.List = function ProfilesList({ children, ...restProps }) {
-    return <List {...restProps}>{children}</List>
-}
+export const List = styled.ul`
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+`
 
-Profiles.User= function ProfilesUser({ children, ...restProps }) {
-    return <Item {...restProps}>{children}</Item>
-}
+export const Name = styled.p`
+    coror: #808080;
+    text-overflow: ellipsis;
+    font-size: 16px;
 
-Profiles.Picture = function ProfilesPicture({ src, ...restProps }) {
-    return <Picture {...restProps} src={src ? `/images/users/${src}.png` : '/images/misc/loading.gif'} />
-}
+    &:hover {
+        font-weight: bold;
+        color: #e5e5e5;
+    }
+`
 
-Profiles.Name = function ProfilesName({ children, ...restProps }) {
-    return <Name {...restProps}>{children}</Name>
-}
+export const Picture = styled.img`
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border: 3px solid black;
+    cursor: pointer;
+`
+
+export const Item = styled.li`
+    max-height: 200px;
+    max-width: 200px;
+    list-style-type: none;
+    text-align: center;
+    margin-right: 30px;
+
+    &:hover > ${Picture} {
+        border: 3px solid white;
+    }
+
+    &:hover > ${Name} {
+        font-weight: bold;
+        color: white;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+`

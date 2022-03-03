@@ -1,7 +1,7 @@
 import { Header, Profiles } from "../components"
 import * as ROUTES from '../constants/routes'
 
-export function SelectProfileContainer({ user, serProfile }) {
+export function SelectProfileContainer({ user, setProfile }) {
     return (
         <>
             <Header bg={false}>
@@ -19,7 +19,7 @@ export function SelectProfileContainer({ user, serProfile }) {
                 </Profiles.Title>
                 <Profiles.List>
                     <Profiles.User
-                        onClick={() => serProfile({
+                        onClick={() => setProfile({
                             displayName: user.displayName,
                             photoURL: user.photoURL
                         })}

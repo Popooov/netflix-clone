@@ -9,7 +9,7 @@ export function BrowseContainer() {
     const [ profile, setProfile ] = useState({})
     const user = {
         displayName: 'Karl',
-        photoUrl: '1'
+        photoURL: '1'
     }
 
     return profile.displayName 
@@ -18,6 +18,6 @@ export function BrowseContainer() {
             <FooterContainer></FooterContainer>
         </>
     ) : (
-        <SelectProfileContainer user={user} serProfile={setProfile} />
+        <SelectProfileContainer user={user} setProfile={setProfile} />
     )
 }

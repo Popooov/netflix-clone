@@ -48,7 +48,7 @@ export function BrowseContainer() {
                                     <Header.Link>{user.displayName}</Header.Link>
                                 </Header.Group>
                                 <Header.Group>
-                                    <Header.Link onClick={() => firebase.auth().sighOut()}>
+                                    <Header.Link onClick={() => firebase.auth().signOut()}>
                                         Sign Out
                                     </Header.Link>
                                 </Header.Group>

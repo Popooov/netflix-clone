@@ -1,6 +1,6 @@
-import { useState, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import { FirebaseContext } from '../context/firebase'
-import { Header } from "../components"
+import { Header, Loading } from "../components"
 import * as ROUTES from '../constants/routes'
 import { SelectProfileContainer } from './profiles'
 import { FooterContainer } from "./footer"
@@ -18,9 +18,16 @@ export function BrowseContainer() {
         photoURL: '1'
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000);
+    }, [user])
+
     return profile.displayName 
     ? (
         <>
+        {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
             <Header src='joker1' dontShowOnSmallViewPort>
                 <Header.Frame>
                     <Header.Group>

@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { GlobalStyles } from './global-styles';
-import { App } from './app';
-import { FirebaseContext } from './context/firebase';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { GlobalStyles } from './global-styles'
+import { App } from './app'
+import { FirebaseContext } from './context/firebase'
 
 const config = {
     apiKey: "AIzaSyBvjdDTguW4DAp72g5P-ncHPMQK_GPHLWQ",
@@ -24,4 +24,4 @@ ReactDOM.render(
         </FirebaseContext.Provider>
     </>,
     document.getElementById('root')
-);
+)
